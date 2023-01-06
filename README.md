@@ -14,6 +14,8 @@ Nome do álbum - Nome da banda
 
 Você pode efetuar a busca de quantos álbuns quiser, desde que todos os álbuns venha um abaixo do outro no padrão informado acima.
 
+No botão download, foi utilizado a biblioteca Dom-to-Image para transformar as capas em um mosaico e assim efetuar o download delas juntas.
+
 ## Demo
 
 <https://apps.romulobrasil.com/albumcovers/>
