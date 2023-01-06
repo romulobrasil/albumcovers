@@ -1,0 +1,72 @@
+/* BREAKINGPOINTS */
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .rmae-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .app-container {
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    &.flx {
+      display: flex;
+    }
+  }
+
+	.content {
+		width: 700px;
+		margin: 0 auto;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+	.offset-lg-1 {
+		margin-left: #{grid(1)};
+	}
+
+	.offset-lg-2 {
+		margin-left: #{grid(2)};
+	}
+
+	.offset-lg-3 {
+		margin-left: #{grid(3)};
+	}
+
+	.offset-lg-6 {
+		margin-left: #{grid(6)};
+	}
+
+	.offset-lg-7 {
+		margin-left: #{grid(7)};
+	}
+	
+	.rmae-container {
+      padding-left: 30px;
+      padding-right: 30px;
+	}
+  
+  .app-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+	
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
+
+/* Large devices (large desktops, 1920px and up) */
+@media (min-width: 1920px) { 
+	.main {
+		width: 1920px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.rmae-container {
+		padding: 0 80px;
+	}
+}

@@ -1,0 +1,135 @@
+@mixin transition($time) {
+	transition: all ease-in-out $time;
+}
+
+// COLOR PLACEHOLDER
+@mixin placeholder($color-placeholder) {
+	input::-webkit-input-placeholder { color: $color-placeholder; }
+	input:-moz-placeholder { color: $color-placeholder; }
+	input::-moz-placeholder { color: $color-placeholder; }
+	input:-ms-input-placeholder { color: $color-placeholder; }
+}
+
+// Adds a browser prefix to the property
+@mixin css3-prefix($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-khtml-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-o-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+/* CLEARFIX */
+@mixin clearfix() {
+	&::after {
+		display: block;
+		content: "";
+		clear: both;
+	}
+}
+
+// COVER
+@mixin cover($opacity) {
+	content: '';
+	opacity: $opacity;
+	position: absolute;
+	top: 0;left: 0;right: 0;bottom: 0;
+}
+
+// Box Shadow
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+	@if ($inset != "") {
+		@include css3-prefix('box-shadow', $inset $x $y $blur $color);
+	} @else {
+		@include css3-prefix('box-shadow', $x $y $blur $color);
+	}
+}
+
+// GRADIENTE
+@mixin gradient($first-color, $second-color, $type-gradient) {
+	@if $type-gradient == horizontal {
+		background: $first-color;
+		background: -moz-linear-gradient(left,  $first-color 0%, $second-color 100%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$first-color), color-stop(100%,$second-color));
+		background: -webkit-linear-gradient(left,  $first-color 0%,$second-color 100%);
+		background: -o-linear-gradient(left,  $first-color 0%,$second-color 100%);
+		background: -ms-linear-gradient(left,  $first-color 0%,$second-color 100%);
+		background: linear-gradient(to right,  $first-color 0%,$second-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=1 );
+
+	} @else if $type-gradient == vertical {
+		background: $first-color;
+		background: -moz-linear-gradient(top,  $first-color 0%, $second-color 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$first-color), color-stop(100%,$second-color));
+		background: -webkit-linear-gradient(top,  $first-color 0%,$second-color 100%);
+		background: -o-linear-gradient(top,  $first-color 0%,$second-color 100%);
+		background: -ms-linear-gradient(top,  $first-color 0%,$second-color 100%);
+		background: linear-gradient(to bottom,  $first-color 0%,$second-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=0 );
+
+	} @else if $type-gradient == diagonal-down {
+		background: $first-color;
+		background: -moz-linear-gradient(-45deg,  $first-color 0%, $second-color 100%);
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$first-color), color-stop(100%,$second-color));
+		background: -webkit-linear-gradient(-45deg,  $first-color 0%,$second-color 100%);
+		background: -o-linear-gradient(-45deg,  $first-color 0%,$second-color 100%);
+		background: -ms-linear-gradient(-45deg,  $first-color 0%,$second-color 100%);
+		background: linear-gradient(135deg,  $first-color 0%,$second-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=1 );
+
+	} @else if $type-gradient == diagonal-up {
+		background: $first-color;
+		background: -moz-linear-gradient(45deg,  $first-color 0%, $second-color 100%);
+		background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,$first-color), color-stop(100%,$second-color));
+		background: -webkit-linear-gradient(45deg,  $first-color 0%,$second-color 100%);
+		background: -o-linear-gradient(45deg,  $first-color 0%,$second-color 100%);
+		background: -ms-linear-gradient(45deg,  $first-color 0%,$second-color 100%);
+		background: linear-gradient(45deg,  $first-color 0%,$second-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=1 );
+
+	} @else if  $type-gradient == radial {
+		background: $first-color;
+		background: -moz-radial-gradient(center, ellipse cover,  $first-color 0%, $second-color 100%);
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$first-color), color-stop(100%,$second-color));
+		background: -webkit-radial-gradient(center, ellipse cover,  $first-color 0%,$second-color 100%);
+		background: -o-radial-gradient(center, ellipse cover,  $first-color 0%,$second-color 100%);
+		background: -ms-radial-gradient(center, ellipse cover,  $first-color 0%,$second-color 100%);
+		background: radial-gradient(ellipse at center,  $first-color 0%,$second-color 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=1 );
+	}
+}
+
+@mixin order($num){
+	-webkit-box-ordinal-group: $num+1;
+	-ms-flex-order: $num;
+	order: $num;
+}
+
+@mixin device($size) {
+	@if $size == sm {
+		@media (min-width: #{$sm-device}) {
+			@content;
+		}
+	}	@else if $size == md {
+		@media (min-width: #{$md-device}) {
+			@content;
+		}
+	}	@else if $size == lg {
+		@media (min-width: #{$lg-device}) {
+			@content;
+		}
+	} @else if $size == xl {
+		@media (min-width: #{$xl-device}) {
+			@content;
+		}
+	}
+}
+
+/* GRID */
+@function grid($col){
+	$width: calc($col / $cols) * 100;
+	$result: #{$width} + '%';
+
+	@return $result;
+}

@@ -1,0 +1,37 @@
+//========================================================//
+// Variable Default Settings                              //
+//========================================================//
+$url                    : '/';
+$white                  : #FFF;
+$white-o                : rgba(255, 255, 255, 0.25);
+$black-o                : rgba(0, 0, 0, 0.5);
+$black                  : #000;
+$blue                   : #fbfeff;
+$yellow                 : #f5c518;
+
+//$content                : #333;
+$content                : #242424;
+$border                 : #e7e7e7;
+
+//========================================================//
+// Module loading                                         //
+//========================================================//
+$use-all                :   true !default;
+$use-acervus-reboot     :   $use-all !default;
+$use-acervus-grid       :   $use-all !default;
+$use-carousel           :   $use-all !default;
+$use-contactform        :   $use-all !default;
+$use-fancybox           :   $use-all !default;
+$use-fonts              :   $use-all !default;
+$use-modal              :   $use-all !default;
+
+
+//========================================================//
+// VAR GRID                                               //
+//========================================================//
+$cols: 12;
+$gutter: 30;
+$sm-device: 576px; 
+$md-device: 768px; 
+$lg-device: 992px; 
+$xl-device: 1200px;

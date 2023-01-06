@@ -1,0 +1,33 @@
+.title {
+  text-align: center;
+  padding: 30px 0 50px;
+  font-size: 30px;
+}
+
+.form {
+  width: 100%;
+  textarea {
+    width: 100%;
+    border: 1px solid #f7f7f7;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .btn-load {
+    background-color: $yellow;
+    border: 0;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+    padding: 8px 10px 5px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+}
+
+.covers {
+  width: 1500px;
+  display: flex;
+  flex-wrap: wrap;
+}

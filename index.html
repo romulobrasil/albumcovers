@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Album Covers by Rômulo Brasil</title>
+</head>
+<body>
+  <main class="main">
+    <div class="content">
+      <div class="title">
+        <h1>Get Album Covers</h1>
+        <div class="form">
+          <textarea nome="albumlist" id="albumlist" cols="30" rows="10"></textarea>
+          <button type="submit" id="load" class="btn-load">Get Covers</button>
+          <button id="download" class="btn-load">Download</button>
+        </div>
+      </div>
+    </div>
+    <div class="app-container">
+      <div id="covers" class="covers"></div>
+    </div>
+  </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+  <script src="js/albumcovers.js"></script>
+  <script>
+    AlbumCovers.get();
+    
+    const download = document.getElementById('download');
+    const covers = document.getElementById('covers');
+
+    download.addEventListener('click', function() {
+      domtoimage.toJpeg(covers, { quality: 1 })
+      .then(function (dataUrl) {
+          var link = document.createElement('a');
+          link.download = 'melhore-albuns-de-2022.jpeg';
+          link.href = dataUrl;
+          link.click();
+      });
+    });
+  </script>
+</body>
+</html>
